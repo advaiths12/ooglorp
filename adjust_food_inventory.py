@@ -77,12 +77,13 @@ def main():
             if(apple_count == None):
                 continue
             else:
+                print("IN")
                 update_csv("./monthly_tomatoes_ooglorp.csv", apple_count)
-        count += 1
+            count += 1
 
 
-    print(find_adjusted_food_order("./monthly_tomatoes.csv", "./monthly_tomatoes_ooglorp.csv", 2))
-    update_csv("./monthly_tomatoes.csv", 69)
+    #print(find_adjusted_food_order("./monthly_tomatoes.csv", "./monthly_tomatoes_ooglorp.csv", 2))
+    #update_csv("./monthly_tomatoes.csv", 69)
     #print(list(forecast['yhat_lower'])[list(forecast['ds']).index(pd.Timestamp('2010-08-10'))]) #how to look up a certain date
 
 
