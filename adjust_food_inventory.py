@@ -11,12 +11,11 @@ import csv
 #function to retrain the model based on the new data
 #returns model object
 def update_csv(csv_path, value):
-    with open(csv_path, 'ab') as csvfile:
+    with open(csv_path, 'a') as csvfile:
         spamwriter = csv.writer(csvfile)
         date = datetime.date.today()
         date = date.strftime('%Y-%d-%m')
         temp = date
-        spamwriter.writerow([])
         spamwriter.writerow([temp, value])
 
 
