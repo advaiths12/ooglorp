@@ -7,6 +7,7 @@ import argparse
 import time
 import cv2
 import os
+import datetime
 #from pseyepy import Camera
 
 # construct the argument parse and parse the arguments
@@ -42,9 +43,11 @@ def snap_and_count():
     #open webcam
     cam = cv2.VideoCapture(0)
     # load our input image and grab its spatial dimensions
-    image = cv2.imread("./images/apples.jpg")
-        #cam.read()
+    ret, image = cam.read()
+        #cv2.imread("./images/apples.jpg")
+        #cam.read()a
     (H, W) = image.shape[:2]
+
 
     # determine only the *output* layer names that we need from YOLO
     ln = net.getLayerNames()
@@ -128,7 +131,10 @@ def snap_and_count():
     cam.release()
     print(count_dict)
     cv2.imshow("Image", image)
-    #cv2.waitKey(0)
+    date = datetime.date.today()
+    date = date.strftime('%m-%d-%Y')
+    print("./output/" + date + ".jpg")
+    cv2.imwrite("./output/" + date + ".jpg", image)
     return count_dict
 
     # show the output image

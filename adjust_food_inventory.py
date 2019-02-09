@@ -71,7 +71,7 @@ def main():
     while count < 2:
         curr_time = int(time.time())
         #every minute check ur apples
-        if(curr_time % 60 == 0):
+        if(curr_time % 10 == 0):
             count_dict = snap_and_count()
             apple_count = find_in_count(count_dict, "apple")
             if(apple_count == None):
