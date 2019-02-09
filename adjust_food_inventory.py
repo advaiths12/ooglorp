@@ -14,9 +14,11 @@ def update_csv(csv_path, value):
     with open(csv_path, 'a') as csvfile:
         spamwriter = csv.writer(csvfile)
         date = datetime.date.today()
-        date = date.strftime('%Y-%d-%m')
+        date = date.strftime('%m/%d/%Y')
         temp = date
+        spamwriter.writerow([])
         spamwriter.writerow([temp, value])
+
 
 
 def retrain(csv_path):
